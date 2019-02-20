@@ -53,18 +53,14 @@ const router = new Router({
   ]
 })
 
-// router.beforeEach((to, from, next) => {
-//   store.dispatch('fetchAccessToken')
-//   if (to.fullPath === '/home') {
-//     if (!store.state.token) {
-//       next('/')
-//     }
-//   }
-//   if (to.fullPath === '/') {
-//     if (store.state.token) {
-//       next('/home')
-//     }
-//   }
-// })
+router.beforeEach((to, from, next) => {
+  console.log('this is store from route', store.state.accessoken)
+  store.dispatch('fetchAccessToken')
+  if (to.path !== '/' && !store.state.token) {
+    next('/')
+  } else {
+    next()
+  }
+})
 
 export default router

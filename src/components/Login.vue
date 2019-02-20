@@ -51,6 +51,7 @@ export default {
         this.$store.dispatch('setUser', response.data.user)
         this.$router.push('/home')
       } catch (error) {
+        console.log(error)
         console.log(error.response.data.error)
         this.error = error.response.data.error
       }
