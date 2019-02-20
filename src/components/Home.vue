@@ -9,7 +9,7 @@
   <b-navbar-nav>
     <b-nav-item href="/home">Home</b-nav-item>
     <b-nav-item href="/menuform">Menu Form</b-nav-item>
-    <router-link href="/foodlogs">FoodLog Form</router-link>
+    <b-nav-item href="/foodlogform">FoodLog Form</b-nav-item>
   </b-navbar-nav>
 
   <b-collapse is-nav id="nav_collapse">
