@@ -1,39 +1,12 @@
 <template>
   <div class="foodlogs">
-    <b-navbar toggleable="md" type="dark" variant="info">
+    <phoodNav></phoodNav>
 
-  <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
-
-  <b-navbar-brand href="#">Phood</b-navbar-brand>
-
-  <b-navbar-nav>
-    <b-nav-item href="/home">Home</b-nav-item>
-    <b-nav-item href="/menuform">Menu Form</b-nav-item>
-    <b-nav-item href="/foodlogform">FoodLog Form</b-nav-item>
-  </b-navbar-nav>
-
-  <b-collapse is-nav id="nav_collapse">
-
-    <!-- Right aligned nav items -->
-    <b-navbar-nav class="ml-auto">
-
-      <b-nav-item-dropdown right>
-        <!-- Using button-content slot -->
-        <template slot="button-content">
-          <em>User</em>
-        </template>
-        <b-dropdown-item href="/menu">Menu</b-dropdown-item>
-        <b-dropdown-item href="/foodlogs">FoodLogs</b-dropdown-item>
-      </b-nav-item-dropdown>
-    </b-navbar-nav>
-
-  </b-collapse>
-</b-navbar>
     <h1>hello from the blog</h1>
     <input id="search-btn" type="text" v-model='search' placeholder='search by item Name' />
     <div class="main-box">
       <ul class="users">
-          <li v-for='(post, index) in filterFooLog' :key='post.id' mode="out-in"> <p>{{ index }}</p> <td>{{ post.itemName }}</td> <td>{{ post.itemType }}</td> <td>{{ post.locationId }}</td> <td>{{ post.loggedTime }}</td> <td>{{ post.dateProduced }}
+          <li v-for='(post, index) in filterFooLog' :key='post.id' mode="out-in"> <td>{{ post.itemName }}</td> <td>{{ post.itemType }}</td> <td>{{ post.locationId }}</td> <td>{{ post.loggedTime }}</td> <td>{{ post.dateProduced }}
           </td> <td>{{ post.meal }}</td> <td>{{ post.format }}</td>
             <button id="edit-btn" @click="save(index)">edit</button>
             <button class="deleteBtn" @click="deletePost(post.id)">x</button></li>
@@ -48,8 +21,12 @@
 import { mapState } from 'vuex'
 import AuthenticationService from '../helper/foodLog'
 import store from '../store'
+import phoodNav from './globals/navBar'
 
 export default {
+  components: {
+    phoodNav: phoodNav
+  },
   data () {
     return {
       search: '',

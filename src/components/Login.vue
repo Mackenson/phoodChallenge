@@ -29,6 +29,7 @@
 
 <script>
 import AuthenticationService from '../helper/auth'
+
 export default {
   data () {
     return {
@@ -49,7 +50,6 @@ export default {
         this.$store.dispatch('setUserSession', response.headers.authorization)
         this.$store.dispatch('setToken', response.data.user.id)
         this.$store.dispatch('setUser', response.data.user)
-        this.$router.push('/home')
       } catch (error) {
         console.log(error)
         console.log(error.response.data.error)
