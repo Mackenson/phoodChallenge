@@ -1,51 +1,23 @@
 <template>
   <div class="home">
-    <b-navbar toggleable="md" type="dark" variant="info">
-
-  <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
-
-  <b-navbar-brand href="#">Phood</b-navbar-brand>
-
-  <b-navbar-nav>
-    <b-nav-item href="/home">Home</b-nav-item>
-    <b-nav-item href="/menuform">Menu Form</b-nav-item>
-    <b-nav-item href="/foodlogform">FoodLog Form</b-nav-item>
-  </b-navbar-nav>
-
-  <b-collapse is-nav id="nav_collapse">
-
-    <!-- Right aligned nav items -->
-    <b-navbar-nav class="ml-auto">
-
-      <b-nav-item-dropdown right>
-        <!-- Using button-content slot -->
-        <template slot="button-content">
-          <em>User</em>
-        </template>
-        <b-dropdown-item href="/menu">Menu</b-dropdown-item>
-        <b-dropdown-item href="/foodlogs">FoodLogs</b-dropdown-item>
-        <b-dropdown-item type="button" name="button" @click='logout'>Signout</b-dropdown-item>
-      </b-nav-item-dropdown>
-    </b-navbar-nav>
-
-  </b-collapse>
-</b-navbar>
-  <div id='main-btn'>
-    <b-col lg="4" class="pb-2"><b-button class="btn-lg" size="lg" href="/menuform" >Go To Menu</b-button></b-col>
-    <b-col lg="4" class="pb-2"><b-button size="lg" href="/foodlogform" >Go To FoodLog</b-button></b-col>
+    <phoodNav>
+    </phoodNav>
+    <div id='main-btn'>
+      <b-col lg="4" class="pb-2"><b-button class="btn-lg" size="lg" href="/menuform" >Go To Menu</b-button></b-col>
+      <b-col lg="4" class="pb-2"><b-button size="lg" href="/foodlogform" >Go To FoodLog</b-button></b-col>
+    </div>
   </div>
-</div>
 </template>
 
 <script>
 import { mapActions } from 'vuex'
 import AddMenuItemForm from './addMenuItemForm'
-import foodLog from './FoodLogForm'
+import phoodNav from './globals/navBar'
 
 export default {
   components: {
-    'addMenuItemForm': AddMenuItemForm,
-    'foodLog': foodLog
+    addMenuItemForm: AddMenuItemForm,
+    phoodNav: phoodNav
   },
   data () {
     return {
